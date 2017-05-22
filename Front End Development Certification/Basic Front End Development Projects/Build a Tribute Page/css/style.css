@@ -1,0 +1,18 @@
+body {
+  background-color: #dddddd;
+  text-align:center;
+}
+
+.imgdiv{
+  background-color: #ffffff;
+  text-align:center;
+}
+
+.aligncenter {
+ clear: both;
+ display: block;
+ margin:auto;
+}
+em{
+  margin: 4cm 4cm 4cm 4cm;
+}
