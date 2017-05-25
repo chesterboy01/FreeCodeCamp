@@ -32,3 +32,30 @@ li a:hover {
 .active {
     background-color: #4CAF50;
 }
+.titleli{
+  padding: 14px 16px 14px 16px;
+  float: left;
+  color: #999;
+  font-size: 20px;
+}
+
+img {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 10px 10px 10px 10px; /* Some padding */
+    width: 150px; /* Set a small width */
+}
+
+/* Add a hover effect (blue shadow) */
+img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+#content {
+  float: right ;
+  width: 100% ;
+}
+#navbar {
+  float: right;
+  width: 100%;
+}
