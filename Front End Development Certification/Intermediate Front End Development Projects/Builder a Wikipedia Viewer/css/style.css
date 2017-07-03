@@ -1,0 +1,10 @@
+/*unordered list without bullets*/
+ul {
+  list-style-type: none;
+}
+
+li{
+  background-color: grey;
+  margin: 50px 30px 50px 80px;
+}
+
