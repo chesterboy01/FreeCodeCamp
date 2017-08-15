@@ -1,0 +1,16 @@
+ul {
+  list-style-type: none;
+}
+
+div{
+  display:inline-block;
+}
+
+#esl_name {display:inline-block;margin-right:10px;} 
+#esl_status {display:inline-block;} 
+
+#test_name {display:inline-block;margin-right:10px;} 
+#test_status {display:inline-block;} 
+
+#w33_name {display:inline-block;margin-right:10px;} 
+#w33_status {display:inline-block;} 
