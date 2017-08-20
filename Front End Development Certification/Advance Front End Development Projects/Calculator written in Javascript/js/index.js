@@ -8,7 +8,6 @@ function operate(op){
   if(isJustEqual){
     isJustEqual = false;
   }
-  console.log("-------"+str.length);
   if(str.length == 0){
     //符号不能出现在开头
     return;
@@ -50,6 +49,7 @@ function dot(){
 }
 
 function allClear(){
+  isJustEqual = false;
   equation = [];
   str = equation.join("");
   document.getElementById("cal_display").innerHTML = str;
@@ -58,14 +58,41 @@ function allClear(){
 function equalTo(){
   if(str.charAt(str.length-1) == '.' || operator.indexOf(str.charAt(str.length-1))!=-1)
     return;//末尾是小数点或运算符时 等号无效
-
+  console.log("1%%%%%%% "+equation);
   cal();
+  console.log("2&&&&&&& "+str);
   document.getElementById("cal_display").innerHTML = str;
   equation = [];
-  equation.push(str);
+  for(var index=0; index<str.length; index++)
+    equation.push(str.charAt(index));
   isJustEqual = true;//置flag，表示刚刚进行了运算
+  console.log(equation);
 }
 
-function cal(){//纯粹连着算下去，结果取两位小数点
-  
+function cal(string){//纯粹连着算下去，结果取两位小数点
+  var result = 0;
+  var begin = 0;
+  var end = 1;
+  while(operator.indexOf(str.charAt(end)) == -1)
+    end++;
+  result += Number(str.substring(begin,end));
+  begin = end+1;
+  while(begin<str.length){
+    var op = str.charAt(end);
+    end+=2;
+    while(operator.indexOf(str.charAt(end)) == -1)
+      end++;
+    var num = Number(str.substring(begin,end));
+    if(op == '+')
+      result+=num;
+    else if(op == '-')
+      result-=num;
+    else if(op == '/')
+      result/=(num*1.0);
+    else if(op == '*')
+      result*=(num*1.0);
+    begin = end+1;
+  }
+  str = result.toString();
+  console.log(" str === "+str);
 }
