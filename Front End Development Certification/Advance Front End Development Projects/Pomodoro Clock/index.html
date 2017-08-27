@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Pomodoro Clock</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <h2>Hongming's Pomodoro Clock</h2>
+<div id = "session">
+  Session time adjustment:
+  <button onclick="adjust(true,'-')">-</button>
+  <button onclick="adjust('true','+')">+</button>
+  <span id = "s_time">25</span><span>min</span> <!-- inline text-->
+</div>
+<div id = "break">
+  Break time adjustment:
+  <button onclick="adjust(false,'-')">-</button>
+  <button onclick="adjust(false,'+')">+</button>
+  <span id = "b_time">5</span><span>min</span> <!-- inline text-->
+</div>
+
+<div>
+  <span id = "title">Session</span>: <span id = "timer">25:00</span>
+</div>
+
+<div>
+  <input type="button" id="controller" onclick="control()" value="Start"></input>
+</div>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>
