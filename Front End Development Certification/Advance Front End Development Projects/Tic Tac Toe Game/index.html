@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe Game</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <h2>Hongming's Tic Tac Toe Game</h2>
+<div id="select">Choose to play as:<button id="x_button" onclick="select(true)">x</button> or <button id="o_button" onclick="select(false)">o</button></div><br>
+<span id = "who"></span>
+
+<table border="1">
+            <tr height="25">
+                <td onclick="move(0,0)" id="cell00"></td>
+                <td onclick="move(0,1)" id="cell01"></td>
+                <td onclick="move(0,2)" id="cell02"></td>
+            </tr>
+            <tr height="25">
+                <td  onclick="move(1,0)" id="cell10"></td>
+                <td onclick="move(1,1)" id="cell11"></td>
+              <td onclick="move(1,2)" id="cell12"></td>
+            </tr>
+            <tr height="25">
+                <td onclick="move(2,0)" id="cell20"></td>
+                <td onclick="move(2,1)" id="cell21"></td>
+                <td onclick="move(2,2)" id="cell22"></td>
+            </tr>
+        </table>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>
