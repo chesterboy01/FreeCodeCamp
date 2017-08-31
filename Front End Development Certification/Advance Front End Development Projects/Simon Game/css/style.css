@@ -1,0 +1,16 @@
+.music{
+  padding: 5px 30px 5px 30px;
+  margin: 1px 30px 5px 30px;
+}
+#bt0{
+  background-color: #FF0000;
+}
+#bt1{
+  background-color: #00FF00;
+}
+#bt2{
+  background-color: 	#0000FF;
+}
+#bt3{
+  background-color: #FFFF00;
+}
