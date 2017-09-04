@@ -6,6 +6,7 @@ var cur_path = [];
 
 var isOn = false;
 var isStrict = false;
+var win_length = 5;
 
 ini();
 //console.log(typeof(test_path[1]));
@@ -21,21 +22,30 @@ function ini(){
   document.getElementById("bt1").disabled = true;
   document.getElementById("bt2").disabled = true;
   document.getElementById("bt3").disabled = true;
+   document.getElementById("start_btn").disabled = true;;
 }
 //用户专用的按键动作逻辑，加入了当前用户输入的旋律是否正确的判断
 function userClickToPlay(num){
   clickToPlay(num);
   cur_path.push(num);
-  if(cur_path[cur_path.length-1] != path[path.length-1]){
+  if(cur_path[cur_path.length-1] != path[cur_path.length-1]){
     //error;
-    document.getElementById("count").innerHTML = "!!";
-    cur_path = [];
-    
+    document.getElementById("count").innerHTML = "!!"; 
+    if(isStrict){//strict模式清空已经生成的旋律
+      path = [];
+      main_control();
+    }
+    else
+      setTimeout(playMelody_path,1000);
   }
-  else{
-    if(cur_path.length == path.length)
-      //correct; generate new random note
-      ;
+  else{//correct;
+    if(cur_path.length >= path.length){//这样设置才能保证用户输入完旋律以后系统才开始播放当前正确的旋律
+      if(cur_path.length>=win_length){
+        document.getElementById("count").innerHTML = "Win!"; 
+        //path = []; 
+      }
+      setTimeout(main_control,2000);
+    }
   }
 }
 
@@ -78,6 +88,7 @@ function switchAction(checkboxElem){
     isOn = true;
     document.getElementById("count").innerHTML = "--";
     document.getElementById("strict").disabled = false;
+    document.getElementById("start_btn").disabled = false;
   }
   else{
     ini();
@@ -92,6 +103,11 @@ function strictAction(checkboxElem){
 }
 
 function main_control(){
+  if(path.length>=win_length && cur_path.length>=win_length){
+    path = [];
+  }
+  if(!isOn)
+    return;
   document.getElementById("bt0").disabled = false;
   document.getElementById("bt1").disabled = false;
   document.getElementById("bt2").disabled = false;
@@ -100,8 +116,6 @@ function main_control(){
   playMelody(path);
   document.getElementById("count").innerHTML = path.length;
 }
-
-
 
 
 function playMelody(melody_path){
@@ -119,6 +133,8 @@ function playMelody(melody_path){
     else if(melody_path[i] == 3)
       setTimeout(click3,1000*(i+1));
   }
+  cur_path = [];
+  document.getElementById("count").innerHTML = path.length;
 }
 
 function click0(){
@@ -132,4 +148,19 @@ function click2(){
 }
 function click3(){
   clickToPlay(3);
+}
+
+function playMelody_path(){
+  playMelody(path);
+}
+
+function countDisplay(){
+  document.getElementById("count").innerHTML = path.length;
+}
+
+function start_click(){
+  if(!isOn)
+    return;
+  path = [];
+  main_control();
 }
